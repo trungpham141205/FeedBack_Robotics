@@ -14,12 +14,12 @@ app.use('/', webRoutes);
 
 
 // simple query
-connection.query(
-    'SELECT * FROM Feedback f',
-    function (error, results, fields){
-        console.log(">>>results= ", results);
-    }
-)
+// connection.query(
+//     'SELECT * FROM Feedback f',
+//     function (error, results, fields){
+//         console.log(">>>results= ", results);
+//     }
+// )
 
 app.use(express.json());
 
