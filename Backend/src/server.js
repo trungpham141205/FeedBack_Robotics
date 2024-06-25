@@ -12,6 +12,13 @@ configViewEngine(app);
 // Define route
 app.use('/', webRoutes);
 
+app.use(express.json());
+
+app.use((error, req, res, next) => {
+    res.status(error.status || 500).json({ error: error.message });
+});
+
+module.exports = app;
 
 // simple query
 // connection.query(
@@ -20,11 +27,3 @@ app.use('/', webRoutes);
 //         console.log(">>>results= ", results);
 //     }
 // )
-
-app.use(express.json());
-
-app.use((error, req, res, next) => {
-    res.status(error.status || 500).json({ error: error.message });
-});
-
-module.exports = app;
